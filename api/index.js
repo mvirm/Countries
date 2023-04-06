@@ -19,9 +19,11 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
+const {getDataApi} = require('./src/controllers/dataApi.js')
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(() => {
+conn.sync({ force: true }).then(async () => {
+  await getDataApi()
   server.listen(3001, () => {
     console.log('%s listening at 3001', server.name); // eslint-disable-line no-console
     console.log('connected to the database');

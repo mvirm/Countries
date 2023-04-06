@@ -1,16 +1,17 @@
 const { DataTypes } = require('sequelize');
 
 module.exports= (sequelize) => {
-    sequelize.define('activity', {
+    sequelize.define('Activity', {
        id:{
         type: DataTypes.INTEGER,
         allowNull: false,
         autoincremet: true,
         primaryKey: true,
+        unique: true
        }, 
        name:{
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: false
        },
        difficulty:{
         type: DataTypes.INTEGER,
