@@ -1,17 +1,37 @@
 const {Activity} = require('../../db');
 
-const createActivity = async (name, difficulty, duration, season, countryId) => {
-    const newActivity = await Activity.create({
-        name, 
-        difficulty,
-        duration,
-        season
-    });
-//ver como llega difficulty y season ==> undefined?
-    await newActivity.addCountry(countryId);
+// const [user, created] = await User.findOrCreate({
+//     where: { username: 'sdepold' },
 
-    return newActivity;
-};
+    const createActivity = async (name, difficulty, duration, season, countryId) => {
+        const [activity, created] = await Activity.findOrCreate({
+           where: {
+            name,
+            difficulty,
+            duration,
+            season
+           } 
+        })
+
+        const cId = countryId.toUpperCase();
+        await activity.addCountry(cId);
+
+        return activity;
+    }
+
+// const createActivity = async (name, difficulty, duration, season, countryId) => {
+//     const newActivity = await Activity.create({
+//         name,
+//         difficulty,
+//         duration,
+//         season
+//     });
+
+//     const cId = countryId.toUpperCase();
+//     await newActivity.addCountry(cId);
+
+//     return newActivity;
+// };
 
 module.exports = {
     createActivity
