@@ -1,14 +1,11 @@
 const {Router} = require('express');
+const { postActivityHandler, getActivitiesHandler } = require('../handlers/activitiesHandlers');
 
 const activitiesRouter = Router();
 
-activitiesRouter.post('/', (req, res) => {
-    res.status(200).send('NIY: creo una nueva actividad')
-})
+activitiesRouter.post('/', postActivityHandler)
 
-activitiesRouter.get('/', (req, res) => {
-    res.status(200).send('NIY: traigo tosas las actividades turisticas')
-})
+activitiesRouter.get('/', getActivitiesHandler)
 
 module.exports = {
     activitiesRouter

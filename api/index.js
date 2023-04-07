@@ -31,3 +31,4 @@ conn.sync({ force: true }).then(async () => {
 }).catch(error => {
   console.log('The connection to the database could not be established');
 });
+

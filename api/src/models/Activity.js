@@ -4,10 +4,8 @@ module.exports= (sequelize) => {
     sequelize.define('Activity', {
        id:{
         type: DataTypes.INTEGER,
-        allowNull: false,
-        autoincremet: true,
         primaryKey: true,
-        unique: true
+        autoincremet: true
        }, 
        name:{
         type: DataTypes.STRING,
@@ -25,7 +23,7 @@ module.exports= (sequelize) => {
         type: DataTypes.TIME
        },
        season:{
-        type: DataTypes.ENUM('Verano', 'Otoño', 'Invierno', 'Primavera'),
+        type: DataTypes.ENUM('Summer', 'Autumn', 'Winter', 'Spring'),
         allowNull: false
        }
     }, {timestamps: false});
