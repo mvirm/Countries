@@ -15,6 +15,7 @@ const getCountriesHandler = async (req, res) => {
 const getCountryHandler = async (req, res) => {
     const {id} = req.params;
     try {
+        if(!id) throw new Error('Missing ID');
         const country = await getCountryById(id);
         res.status(200).json(country); 
     } catch (error) {
