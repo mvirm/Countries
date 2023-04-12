@@ -18,7 +18,7 @@ function App() {
           <Route path='/about' element={<About />}/>
           <Route path='/home' element={<Home />}/>
           <Route path='/form' element={<Form />}/>
-          <Route path='/detail' element={<Detail />}/>  
+          <Route path='/detail/:detailId' element={<Detail />}/>  
       </Routes>
   </div>
   );
