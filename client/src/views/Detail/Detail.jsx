@@ -12,7 +12,7 @@ const Detail = () => {
 
     useEffect(() => {
         dispatch(getCountryById(detailId))
-    }, [])
+    }, [detailId])
 
     return (
         <div className={styles.detail}>
@@ -23,7 +23,7 @@ const Detail = () => {
             <h5>Subregion: {country.subregion ? country.subregion : 'subregion not found'}</h5>
             <h5>Area: {country.area ? country.area : 'area not found'}</h5>
             <h5>Population: {country.population}</h5>
-            <button onClick={() => navigate('/home')}>Go Back</button>
+            <button onClick={() => navigate('/home')}>Go Home</button>
         </div>
     )
 };

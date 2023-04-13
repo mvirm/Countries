@@ -1,17 +1,14 @@
 import Card from '../Card/Card';
-import styles from './CardsContainer.module.css'
 import {useSelector} from 'react-redux';
+import styles from './SearchContainer.module.css';
 
+const SearchContainer = () => {
 
-const CardsContainer = () => {
-const countries = useSelector(state => state.countries);
 const countriesByName = useSelector(state => state.countriesByName);
-
-
 
     return(
         <div className={styles.container}>
-            {countries.map(c => {
+            {countriesByName.map(c => {
                 return <Card
                   id = {c.id}
                   name = {c.name}
@@ -23,4 +20,4 @@ const countriesByName = useSelector(state => state.countriesByName);
     )
 }
 
-export default CardsContainer;
+export default SearchContainer;
