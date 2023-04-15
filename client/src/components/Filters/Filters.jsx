@@ -26,8 +26,6 @@ const Filters = () => {
                     <option value="Oceania">Oceania</option>
                     <option value="South America">South America</option>
                 </select>
-            </div>
-            <div>
                 <label htmlFor="activityFilter">Tourist activity:</label>
                 <select name="activityFilter">
                     <option value="All">All</option>

@@ -10,6 +10,7 @@ const Card = (props) => {
             </Link>
             <img src={props.flagImg} alt="flag"/>
             <h4>{props.continent}</h4>
+            <h5>{props.population}</h5>
         </div>
     )
 

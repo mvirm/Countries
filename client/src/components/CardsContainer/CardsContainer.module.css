@@ -4,3 +4,11 @@
     flex-wrap: wrap;
     gap: 5px;
 }
+
+.selects {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: center;
+    border: 1px solid black
+}

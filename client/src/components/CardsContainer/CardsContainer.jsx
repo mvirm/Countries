@@ -1,14 +1,21 @@
 import React from 'react';
 import Card from '../Card/Card';
 import styles from './CardsContainer.module.css'
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {useState} from 'react'
 import Pagination from '../Pagination/Pagination';
 import Filters from '../Filters/Filters';
+import Order from '../Order/Order';
+import { getAllCountries } from '../../redux/actions';
 
 const CardsContainer = () => {
 
 const countries = useSelector(state => state.countries);
+const dispatch = useDispatch();
+
+const handlerShowAll = () => {
+    dispatch(getAllCountries())
+}
 
 const [currentPage, setCurrentPage] = useState(1) 
 const [countriesPerPage, setCountriesPerPage] = useState(10)
@@ -24,12 +31,16 @@ const pages = (pageNumbers) => {
 
     return(
         <div>
-            <Filters />
             <Pagination
             countriesPerPage={countriesPerPage}
             countries={countries.length}
             pages={pages}
             />
+            <div className={styles.selects}>
+            <Order />
+            <button onClick={handlerShowAll}>Show all Countries</button>
+            <Filters />
+            </div>
             <div className={styles.container}>
             {currentCountries.map(c => {
                 return <Card
@@ -37,6 +48,7 @@ const pages = (pageNumbers) => {
                   name = {c.name}
                   flagImg = {c.flagImg}
                   continent = {c.continent}
+                  population = {c.population}
                   key = {c.id}
                 />  
             })}
