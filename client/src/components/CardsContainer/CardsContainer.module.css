@@ -2,5 +2,5 @@
     border: 1px solid black;
     display: flex;
     flex-wrap: wrap;
-    gap: 1px;
+    gap: 5px;
 }

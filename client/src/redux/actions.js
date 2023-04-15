@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ALL_COUNTRIES, GET_COUNTRY_BY_ID, SEARCH_BY_NAME } from './types';
+import { GET_ALL_COUNTRIES, GET_COUNTRY_BY_ID, SEARCH_BY_NAME, FILTER_BY_CONTINENT } from './types';
 
 export const getAllCountries = () => {
     return async (dispatch) => {
@@ -24,5 +24,12 @@ export const searchByName = (name) => {
         dispatch({type: SEARCH_BY_NAME, payload: countries})
     };
 };
+
+export const filterByContinent = (continent) => {
+    return {
+        type: FILTER_BY_CONTINENT,
+        payload: continent
+    }
+}
 
 

@@ -1,3 +1,5 @@
+import React from "react";
+
 const form = () => {
     return (
         <h1>Esta es la vista de FORM</h1>
