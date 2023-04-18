@@ -2,7 +2,7 @@ import React from "react";
 import CardsContainer from "../../components/CardsContainer/CardsContainer";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getAllCountries } from "../../redux/actions";
+import { getAllCountries, getActivities } from "../../redux/actions";
 
 
 
@@ -11,6 +11,7 @@ const Home = () => {
 
     useEffect(() => {
         dispatch(getAllCountries());
+        dispatch(getActivities());
     }, []);
 
     return (

@@ -2,9 +2,12 @@ const {Activity, Country} = require('../../db');
 
 const getAllActivities = async () => {
     const filterd = await Activity.findAll(
-        {include: {
+       { order: [
+                ['name'],
+            ],
+        include: {
             model: Country,
-            attributes: ['name']
+            attributes: ['name', 'flagImg', 'continent', 'population']
          }
         }
     );

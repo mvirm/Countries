@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_ALL_COUNTRIES, GET_COUNTRY_BY_ID, SEARCH_BY_NAME, FILTER_BY_CONTINENT, SORT_BY_POPULATION, SORT_BY_NAME} from './types';
+import { GET_ALL_COUNTRIES, GET_COUNTRY_BY_ID, SEARCH_BY_NAME, FILTER_BY_CONTINENT, SORT_BY_POPULATION, SORT_BY_NAME, GET_ACTIVITIES, FILTER_BY_ACTIVITY} from './types';
 
 export const getAllCountries = () => {
     return async (dispatch) => {
@@ -46,6 +46,17 @@ export const filterByContinent = (continent) => {
     }
 }
 
+export const getActivities = () => {
+    return async (dispatch) => {
+        const response = await axios.get('http://localhost:3001/activities');
+        const activities = response.data;   
+        dispatch({type: GET_ACTIVITIES, payload: activities})
+    }
+};
 
-
-
+export const filterByActivity = (activity) => {
+    return {
+        type: FILTER_BY_ACTIVITY,
+        payload: activity
+    }
+}

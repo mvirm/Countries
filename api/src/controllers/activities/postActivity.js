@@ -14,12 +14,13 @@ const {countryIdValidate} = require('../../validations/countryIdValidate');
         })
 
     // si en el multiple select del form los country id llegan como un array, agregar un map
-        // countryId.map(id => 
+        // countryId.map(id => {
         //     const cId = countryIdValidate(id);
         //     const country = await Country.findByPk(cId);
         //     if(!country) throw new Error(`Country with ID ${id} not found`)
         //     await activity.addCountry(cId);   
-        //     );
+        // });
+        // // y entonces ahi tendria que probar cambiar findOrCreate por Create
 
         const cId = countryIdValidate(countryId);
         const country = await Country.findByPk(cId);

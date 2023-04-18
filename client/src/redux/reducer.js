@@ -1,10 +1,12 @@
-import { GET_ALL_COUNTRIES, GET_COUNTRY_BY_ID, SEARCH_BY_NAME, SORT_BY_POPULATION, FILTER_BY_CONTINENT, SORT_BY_NAME} from "./types";
+import { GET_ALL_COUNTRIES, GET_COUNTRY_BY_ID, SEARCH_BY_NAME, SORT_BY_POPULATION, FILTER_BY_CONTINENT, SORT_BY_NAME, GET_ACTIVITIES, FILTER_BY_ACTIVITY} from "./types";
 
 const initialState = {
     countries: [],
     allCountries: [],
     country: {},
-    countriesByName: []
+    countriesByName: [],
+    activities: [],
+    allActivities : []
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -63,11 +65,27 @@ const rootReducer = (state = initialState, action) => {
             }
         case FILTER_BY_CONTINENT:
             const allCountries = state.allCountries;
-            const filter = action.payload === 'All' ? allCountries : allCountries.filter(c => c.continent === action.payload)
+            //const filter = action.payload === 'All' ? allCountries : allCountries.filter(c => c.continent === action.payload)
+            const filter = allCountries.filter(c => c.continent === action.payload)
             return {
                 ...state,
                 countries: filter
             };
+        case GET_ACTIVITIES:
+            return {
+                ...state,
+                activities: action.payload,
+                allActivities: action.payload
+            }; 
+        case FILTER_BY_ACTIVITY:
+            const allActivities = state.allActivities
+            const findActivity = allActivities.find(a => a.name === action.payload)
+     
+                return {
+                    ...state,
+                    countries: findActivity.Countries
+                }
+            
         default:
             return {
                 ...state
