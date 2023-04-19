@@ -1,7 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Nav.module.css';
-import SearchBar from '../SearchBar/SearchBar';
 
 const Nav = () => {
     return (
@@ -9,8 +8,6 @@ const Nav = () => {
             <NavLink to='/about'>ABOUT</NavLink>
             <NavLink to='/home'>HOME</NavLink> 
             <NavLink to='/form'>CREATE ACTIVITY</NavLink>
-            <SearchBar />
-
         </div>
     )
 }

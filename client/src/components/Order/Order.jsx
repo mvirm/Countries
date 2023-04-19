@@ -19,14 +19,14 @@ const Order = () => {
             <h4>Sort by:</h4>
             <div>
                 <label htmlFor="nameOrder">Name:</label>
-                <select name="nameOrder" onChange={(e) => handlerSortByName(e)}>
-                    <option value="Asc">Ascendant</option>
-                    <option value="Desc">Falling</option>
+                <select name="nameOrder" onChange={handlerSortByName}>
+                    <option value="Asc">A to Z</option>
+                    <option value="Desc">Z to A</option>
                 </select>
                 <label htmlFor="populationOrder">Population:</label>
-                <select name="populationOrder"onChange={(e) => handlerSortByPop(e)}>
-                    <option value="Asc">Ascendant</option>
-                    <option value="Desc">Falling</option>
+                <select name="populationOrder"onChange={handlerSortByPop}>
+                    <option value="Asc">Minor to Major</option>
+                    <option value="Desc">Major to Minor</option>
                 </select>           
             </div>
         </div>

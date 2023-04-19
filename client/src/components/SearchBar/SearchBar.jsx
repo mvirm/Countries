@@ -1,22 +1,52 @@
-import React from 'react';
-import {useState} from 'react';
-import{useNavigate} from 'react-router-dom'
+import styles from './SearchBar.module.css'
+import { useState } from 'react';
+import {useDispatch} from 'react-redux';
+import { searchByName } from '../../redux/actions';
 
-const SearchBar = () => {
-    const [input, setInput] = useState("")
-    const navigate = useNavigate()
+const SearchBar = (props) => {
+    const dispatch = useDispatch()
+    const[name, setName] = useState("");
 
-    const changeHandler = (event) => {
-        setInput(event.target.value)
+    const handlerChange = (e) => {
+        setName(e.target.value)
     }
-   
+    const handlerDispatch = () => {
+        dispatch(searchByName(name));
+        setName('')
+    }
 
-    return(
+    return (
         <div>
-            <input type='search' value={input} onChange={changeHandler} placeholder='Country...'/>
-            <button onClick={() => {navigate(`/search?name=${input}`); setInput('')}}>Search</button>
+            <input type='search'  value={name} onChange={handlerChange} />
+            <button onClick={handlerDispatch}>Search</button> 
         </div>
-    )
+    );
 }
+
+
+
+// import {useState} from 'react';
+// import {useDispatch} from 'react-redux';
+// import { searchByName } from '../../redux/actions';
+
+// const SearchBar = () => {
+//     const [name, setName] = useState('');
+//     const dispatch = useDispatch();
+    
+//     const handlerInput = (e) => {
+//         setName(e.target.value)
+//     }
+
+//     const handlerSubmit = (e) => {
+//         e.preventDefault();
+//         dispatch(searchByName(e.target.value));
+//     }
+//     return(
+//         <div>
+//             <input type="text" value={name} placeholder="Country..." onChange={handlerInput}/>
+//             <button type="submit" onClickt={(e) => dispatch(searchByName(name))}>Search</button>
+//         </div>
+//     )
+// }
 
 export default SearchBar

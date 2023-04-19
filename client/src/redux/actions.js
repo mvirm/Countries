@@ -19,7 +19,7 @@ export const getCountryById = (detailId) => {
         
 export const searchByName = (name) => {
     return async (dispatch) => {
-        const response = await axios.get(`http://localhost:3001/countries/?name=${name}`);
+        const response = await axios.get(`http://localhost:3001/countries?name=${name}`);
         const countries = response.data;
         dispatch({type: SEARCH_BY_NAME, payload: countries})
     };

@@ -1,4 +1,3 @@
-import React from 'react';
 import Card from '../Card/Card';
 import styles from './CardsContainer.module.css'
 import {useSelector, useDispatch} from 'react-redux';
@@ -6,6 +5,7 @@ import {useState} from 'react'
 import Pagination from '../Pagination/Pagination';
 import Filters from '../Filters/Filters';
 import Order from '../Order/Order';
+import SearchBar from '../SearchBar/SearchBar';
 import { getAllCountries } from '../../redux/actions';
 
 const CardsContainer = () => {
@@ -38,11 +38,12 @@ const pages = (pageNumbers) => {
             />
             <div className={styles.selects}>
             <Order />
-            <button onClick={handlerShowAll}>Show all Countries</button>
             <Filters />
+            <SearchBar/>
+            <button onClick={handlerShowAll}>Show all Countries</button>
             </div>
             <div className={styles.container}>
-            {currentCountries.map(c => {
+            {currentCountries && currentCountries.map(c => {
                 return <Card
                   id = {c.id}
                   name = {c.name}

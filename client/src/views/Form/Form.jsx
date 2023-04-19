@@ -1,9 +1,21 @@
-import React from "react";
+import { useEffect } from "react";
+import {useDispatch} from 'react-redux';
+import { getAllCountries } from "../../redux/actions";
+import FormContainer from "../../components/FormContainer/FormContainer";
 
-const form = () => {
+
+const Form = () => {
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getAllCountries());
+    }, []);
+    
     return (
-        <h1>Esta es la vista de FORM</h1>
+        <FormContainer/>
+
     )
 };
 
-export default form;
+export default Form;

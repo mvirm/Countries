@@ -4,7 +4,6 @@ const initialState = {
     countries: [],
     allCountries: [],
     country: {},
-    countriesByName: [],
     activities: [],
     allActivities : []
 }
@@ -25,7 +24,7 @@ const rootReducer = (state = initialState, action) => {
         case SEARCH_BY_NAME:
             return {
                 ...state,
-                countriesByName: action.payload
+                countries: action.payload
             };
         case SORT_BY_POPULATION:
             let sortArray = action.payload === 'Asc' ?
