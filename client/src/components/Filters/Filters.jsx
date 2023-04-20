@@ -11,11 +11,11 @@ const Filters = () => {
     const dispatch = useDispatch();
    
 
-    const handlerFilterContinent = (e) => {
+    const handleFilterContinent = (e) => {
         dispatch(filterByContinent(e.target.value))
     }
 
-    const handlerFilterActivity = (e) => {
+    const handleFilterActivity = (e) => {
         dispatch(filterByActivity(e.target.value))
     }
 
@@ -24,8 +24,8 @@ const Filters = () => {
             <h4>Filter by:</h4>
             <div>
                 <label htmlFor="continentFilter">Continet:</label>
-                <select name="continentFilter" onChange={handlerFilterContinent} >
-                    {continents.map(continent => {
+                <select name="continentFilter" onChange={handleFilterContinent} >
+                    {continents && continents.map(continent => {
                         return(
                             <option key={continent} value={continent}>{continent}</option>
                         )
@@ -33,7 +33,7 @@ const Filters = () => {
                 </select>
                 
                 <label htmlFor="activityFilter">Tourist activity:</label>
-                <select name="activityFilter" onChange={handlerFilterActivity}>
+                <select name="activityFilter" onChange={handleFilterActivity}>
                     {activities && activities.map(a => {
                         return(
                             <option key={a.id} value={a.name}>{a.name}</option>

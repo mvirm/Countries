@@ -1,15 +1,16 @@
-import styles from './SearchBar.module.css'
 import { useState } from 'react';
 import {useDispatch} from 'react-redux';
 import { searchByName } from '../../redux/actions';
+import styles from './SearchBar.module.css'
 
-const SearchBar = (props) => {
+const SearchBar = () => {
     const dispatch = useDispatch()
     const[name, setName] = useState("");
 
     const handlerChange = (e) => {
         setName(e.target.value)
     }
+
     const handlerDispatch = () => {
         dispatch(searchByName(name));
         setName('')
@@ -22,31 +23,5 @@ const SearchBar = (props) => {
         </div>
     );
 }
-
-
-
-// import {useState} from 'react';
-// import {useDispatch} from 'react-redux';
-// import { searchByName } from '../../redux/actions';
-
-// const SearchBar = () => {
-//     const [name, setName] = useState('');
-//     const dispatch = useDispatch();
-    
-//     const handlerInput = (e) => {
-//         setName(e.target.value)
-//     }
-
-//     const handlerSubmit = (e) => {
-//         e.preventDefault();
-//         dispatch(searchByName(e.target.value));
-//     }
-//     return(
-//         <div>
-//             <input type="text" value={name} placeholder="Country..." onChange={handlerInput}/>
-//             <button type="submit" onClickt={(e) => dispatch(searchByName(name))}>Search</button>
-//         </div>
-//     )
-// }
 
 export default SearchBar

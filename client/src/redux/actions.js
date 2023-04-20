@@ -18,11 +18,11 @@ export const getCountryById = (detailId) => {
 };
         
 export const searchByName = (name) => {
-    return async (dispatch) => {
-        const response = await axios.get(`http://localhost:3001/countries?name=${name}`);
-        const countries = response.data;
-        dispatch({type: SEARCH_BY_NAME, payload: countries})
-    };
+        return async (dispatch) => {
+            const response = await axios.get(`http://localhost:3001/countries?name=${name}`);
+            const countries = response.data;
+            dispatch({type: SEARCH_BY_NAME, payload: countries})
+        };   
 };
 
 export const sortByPopulation = (payload) => {
@@ -46,6 +46,13 @@ export const filterByContinent = (continent) => {
     }
 }
 
+export const postActivity = (payload) => {
+    return async (dispatch) => {
+        const response = await axios.post('http://localhost:3001/activities', payload);
+        return response
+    };
+};
+
 export const getActivities = () => {
     return async (dispatch) => {
         const response = await axios.get('http://localhost:3001/activities');
@@ -59,4 +66,4 @@ export const filterByActivity = (activity) => {
         type: FILTER_BY_ACTIVITY,
         payload: activity
     }
-}
+};

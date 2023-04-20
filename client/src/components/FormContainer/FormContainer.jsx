@@ -1,91 +1,132 @@
+
 import {useState} from 'react';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import styles from './FormContainer.module.css'
+import { Link, useNavigate } from 'react-router-dom';
+import { postActivity } from '../../redux/actions';
+import validation from './validation';
 
 const FormContainer = () => {
     const countries = useSelector(state => state.countries);
-    const difficulty = [1, 2, 3, 4, 5];
-    const seasons = ['Summer', 'Autumn', 'Winter', 'Spring'];
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     
-    const [form, setForm] = useState({
+    const [input, setInput] = useState({
         name: '',
         difficulty: '',
         duration: '',
         season: '',
-        countries: '',
+        countryId: []
     });
 
-    const [error, setError] = useState({
-        name: '',
-        difficulty: '',
-        duration: '',
-        season: '',
-        countries: '',
-    });   
+    const [errors, setErrors] = useState({});
 
-    const handlerChange = (e) => {
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value
+    const inputHandle = (e) => {
+        setInput({
+            ...input,
+            [e.target.name] : e.target.value
         });
-        setError({
-            ...form,
-            [e.target.name]: e.target.value
-        });
+        setErrors(validation({
+            ...input,
+            [e.target.name] : e.target.value
+        }));
     };
 
-        return (
-        <form>
-            <h3>Welcome to the tourist activities creation form</h3>
-            <p>complete this form to create the tourist activity you want</p>
-            <div>
-                <label>name:</label>
-                <input type="text" value={form.name} name="name" onChange={handlerChange} placeholder="name of the tourist activity"/>
-                <fieldset>
-                    <legend>Choise the difficulty of de tourist activity</legend>
-                    <div className={styles.orden}>
-                    {difficulty.map (num => {
-                        return (
-                            <div key={num}>
-                                <input type="radio" id={num} name="difficulty" value={form.difficulty} onChange={handlerChange}/>
-                                <label htmlFor={num}>{num}</label>
-                            </div> 
-                        )
-                    })}
-                    </div>
-                </fieldset>
-                <label>duration:</label>
-                <input type="time" value={form.duration} name='duration' onChange={handlerChange}/>
-                <fieldset>
-                    <legend>Choose the season</legend>
-                    <div className={styles.orden}>
-                    {seasons.map(season => {
-                        return (
-                        <div key={season}>
-                            <input type="radio" id={season} name="season" value={form.season} onChange={handlerChange}/>
-                            <label htmlFor={season}>{season}</label>
-                        </div>
-                        )
-                    })}
-                    </div>
-                </fieldset>
-                <fielset>
-                    <legend>Choise the countries</legend>
-                    <div>
-                        <select name="countries" multiple="true" onChange={handlerChange}>
-                            {countries && countries.map(c => {
-                                return(
-                                    <option value={form.countries} key={c.id}>{c.id}-{c.name}</option>
-                                )
-                        })}
-                        </select>
-                    </div>
-                </fielset>
-            </div>
-            <button type='submit'>Submit</button>
-        </form>
+    const checkHandleSeason = (e) =>{
+        let value = e.target.value
+            if(e.target.checked){
+                setInput({
+                    ...input,
+                    season: value
+                });
+            };
+        
+    }
 
-    )
+    const selectHandle = (e) => {
+        setInput({
+            ...input,
+            countryId: [...input.countryId, e.target.value]//traigo todo lo que esta en el array y le concateno el nuevo valor
+        })
+    }
+
+    const deleteHandle = (id) => {
+        setInput({
+            ...input,
+            countryId: input.countryId.filter(c => c !== id)
+        })
+    }
+
+    const submitHandle = (e) => {
+        e.preventDefault();
+
+            dispatch(postActivity(input));
+            alert('activity created!')
+            setInput({
+                name: '',
+                difficulty: '',
+                duration: '',
+                season: '',
+                countryId: [], 
+            });
+            navigate('/home') //una vez enviado el form me redirige a home        
+    }
+
+   return(
+    <div>
+        <h3>Create your tourist activity </h3>
+        <Link to= '/home'><button>Go Home</button></Link><span> or complete this form</span>
+        <form onSubmit={submitHandle}>
+            <div>
+                 <label for='name'>Name:</label>
+                 <input id='name' type='text'  value={input.name} name='name' placeholder='of tourist activity' onChange={inputHandle}/>
+                 {errors.name ? <p className={styles.vDanger}>{errors.name}</p> : null}
+            </div>
+            <div>
+                 <label for='difficulty'>Difficulty:</label>
+                 <input id='difficulty' type='text'  value={input.difficulty} name='difficulty' placeholder='lebel of difficulty:range 1 to 5' onChange={inputHandle}/>
+                 {errors.difficulty ? <p className={styles.vDanger}>{errors.difficulty}</p> : null}
+            </div>    
+
+             <div>
+                <label for='duration'>Duration:</label>
+                <input  id= 'duration'type='time' value={input.duration} name='duration' onChange={inputHandle}/>
+                {errors.duration ? <p className={styles.vDanger}>{errors.duration}</p> : null}
+            </div>
+             <div>
+                <label>Season:</label>
+                     <label for='summer'><input id='summer' type='checkbox' name='Summer' value='Summer'  onChange={(e) => checkHandleSeason(e)}/>Summer</label>
+                     <label for='autumn'><input id='autumn' type='checkbox' name='Autumn' value='Autumn'  onChange={(e) => checkHandleSeason(e)}/>Autumn</label>
+                     <label for='winter'><input id='winter' type='checkbox' name='Winter' value='Winter'  onChange={(e) => checkHandleSeason(e)}/>Winter</label>
+                     <label for='spring'><input id='spring' type='checkbox' name='Spring' value='Spring'  onChange={(e) => checkHandleSeason(e)}/>Spring</label>
+                     {errors.season ? <p className={styles.vDanger}>{errors.season}</p> : null}
+             </div>
+             <div>
+                 <label for='countryId'>Countries where it is performed:</label>
+                 <select id='countryId' onChange={selectHandle}>
+                     {countries.map(c => {
+                        return(
+                            <option key={c.id} value={c.id}>{c.id}-{c.name}</option>
+                        )
+                    })}
+                    {errors.countryId ? <p className={styles.vDanger}>{errors.countryId}</p> : null}
+                </select>
+            </div>
+            <button type='submit'>Create</button>
+        </form>
+            <div>
+                <label for='selected'>Selected countries</label>
+                    {input.countryId && input.countryId.map(id => {
+                        return(
+                            <div>
+                                <p>{id}</p>
+                                <button onClick={() => deleteHandle(id)}>x</button>
+                            </div>
+                        )
+                    })}
+                </div>
+    </div>
+   )
 }
 
 export default FormContainer

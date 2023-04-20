@@ -6,11 +6,11 @@ import {sortByPopulation, sortByName} from "../../redux/actions";
 const Order = () => {
   const dispatch = useDispatch();
 
-  const handlerSortByPop = (e) => {
+  const handleSortByPop = (e) => {
     dispatch(sortByPopulation(e.target.value))
   };
 
-  const handlerSortByName = (e) => {
+  const handleSortByName = (e) => {
     dispatch(sortByName(e.target.value))
   }
 
@@ -19,12 +19,12 @@ const Order = () => {
             <h4>Sort by:</h4>
             <div>
                 <label htmlFor="nameOrder">Name:</label>
-                <select name="nameOrder" onChange={handlerSortByName}>
+                <select name="nameOrder" onChange={handleSortByName}>
                     <option value="Asc">A to Z</option>
                     <option value="Desc">Z to A</option>
                 </select>
                 <label htmlFor="populationOrder">Population:</label>
-                <select name="populationOrder"onChange={handlerSortByPop}>
+                <select name="populationOrder"onChange={handleSortByPop}>
                     <option value="Asc">Minor to Major</option>
                     <option value="Desc">Major to Minor</option>
                 </select>           

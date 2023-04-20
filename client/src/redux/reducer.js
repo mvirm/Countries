@@ -1,4 +1,4 @@
-import { GET_ALL_COUNTRIES, GET_COUNTRY_BY_ID, SEARCH_BY_NAME, SORT_BY_POPULATION, FILTER_BY_CONTINENT, SORT_BY_NAME, GET_ACTIVITIES, FILTER_BY_ACTIVITY} from "./types";
+import { GET_ALL_COUNTRIES, GET_COUNTRY_BY_ID, SEARCH_BY_NAME, SORT_BY_POPULATION, FILTER_BY_CONTINENT, SORT_BY_NAME, GET_ACTIVITIES, FILTER_BY_ACTIVITY, POST_ACTIVITY} from "./types";
 
 const initialState = {
     countries: [],
@@ -70,6 +70,10 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 countries: filter
             };
+        case POST_ACTIVITY:
+            return {
+                ...state
+            };
         case GET_ACTIVITIES:
             return {
                 ...state,
@@ -79,6 +83,7 @@ const rootReducer = (state = initialState, action) => {
         case FILTER_BY_ACTIVITY:
             const allActivities = state.allActivities
             const findActivity = allActivities.find(a => a.name === action.payload)
+            console.log(findActivity);
      
                 return {
                     ...state,

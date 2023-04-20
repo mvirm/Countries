@@ -13,19 +13,19 @@ const CardsContainer = () => {
 const countries = useSelector(state => state.countries);
 const dispatch = useDispatch();
 
-const handlerShowAll = () => {
+const handleShowAll = () => {
     dispatch(getAllCountries())
 }
 
-const [currentPage, setCurrentPage] = useState(1) 
-const [countriesPerPage, setCountriesPerPage] = useState(10)
+const [currentPage, setCurrentPage] = useState(1) //inicializo la paginacion en 1
+const [countriesPerPage, setCountriesPerPage] = useState(10) //indico cuantas cards renderizar por pagina
 
-const lastCountry = currentPage * countriesPerPage;
-const firstCountry = lastCountry - countriesPerPage;
+const lastCountry = currentPage * countriesPerPage; //encuentro el ultimo country renderizado
+const firstCountry = lastCountry - countriesPerPage; //encuentro el primer country renderizado
 
-const currentCountries = countries.slice(firstCountry, lastCountry);
+const currentCountries = countries.slice(firstCountry, lastCountry); //corto el estado global desde el 1 country al ultimo renderizado
 
-const pages = (pageNumbers) => {
+const pages = (pageNumbers) => { //ejecuto la funcion que setea el numero de pagina
     setCurrentPage(pageNumbers);
 }
 
@@ -40,7 +40,7 @@ const pages = (pageNumbers) => {
             <Order />
             <Filters />
             <SearchBar/>
-            <button onClick={handlerShowAll}>Show all Countries</button>
+            <button onClick={handleShowAll}>Show all Countries</button>
             </div>
             <div className={styles.container}>
             {currentCountries && currentCountries.map(c => {

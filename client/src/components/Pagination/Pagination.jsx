@@ -3,10 +3,10 @@ import styles from './Pagination.module.css'
 
 const Pagination = ({countriesPerPage, countries, pages}) => {
     const pageNumbers = [];
-    const lengthNumber = Math.ceil(countries / countriesPerPage);
+    const lengthNumber = Math.ceil(countries / countriesPerPage); // redondeo para arriba la division entre el total de paises por paises por pagina
 
     for(let i = 0; i < lengthNumber; ++i) {
-        pageNumbers.push(i+1);
+        pageNumbers.push(i+1); //pusheo cada uno de los numeros de pagina
     }
     
     return(
