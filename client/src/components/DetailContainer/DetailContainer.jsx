@@ -6,6 +6,7 @@ import styles from './DetailContainer.module.css';
 const DetailContainer = () => {
     const country = useSelector(state => state.country);
     const navigate = useNavigate();
+  
 
     return (
         <div className={styles.detail}>

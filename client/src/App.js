@@ -9,7 +9,7 @@ function App() {
   const location = useLocation();
   return (
     <div className="App">
-      {location.pathname === '/' ? null :
+      {location.pathname === '/' || location.pathname === '/form' ? null :
       <div>
         <Nav />
       </div>

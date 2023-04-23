@@ -1,14 +1,22 @@
-.container {
-    border: 1px solid black;
+/* .img {
+    background-image: url('https://media.istockphoto.com/id/1069421626/es/foto/un-mapa-del-mundo-hecho-de-papel-de-grabaci%C3%B3n-en-relieve.jpg?s=612x612&w=0&k=20&c=nObUgd1C9ja6CQ2FqG2KMEHF3-foNSQp-p0IHQh8j90=');
+    height: 520px;
+    background-size:cover;
+    background-repeat: no-repeat;
+    margin-top: 0px; 
     display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
+} */
+
+.container {
+    display: flex;
+    flex-wrap: wrap;   
 }
 
 .selects {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-content: center;
+    flex-direction: column;
+    float: left; 
+    width: 200px; 
+    height: 300px; 
     border: 1px solid black
 }

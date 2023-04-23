@@ -3,7 +3,7 @@ import {useDispatch} from 'react-redux';
 import { useEffect } from 'react';
 import DetailContainer from '../../components/DetailContainer/DetailContainer';
 import { getCountryById } from '../../redux/actions';
-import styles from './Detail.module.css';
+import Footer from '../../components/Footer/Footer';
 
 
 const Detail = () => {
@@ -18,6 +18,7 @@ const Detail = () => {
     return (
         <div>
             <DetailContainer/>
+            <Footer/>
         </div>
     )
 };

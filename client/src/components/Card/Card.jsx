@@ -4,14 +4,15 @@ import styles from './Card.module.css';
 
 const Card = (props) => {
     return(
-        <div className={styles.card}>
-            <Link to={`/detail/${props.id}`}>
-                <h2>{props.name}</h2>
-            </Link>
-            <img src={props.flagImg} alt="flag"/>
-            <h4>{props.continent}</h4>
-            <h5>{props.population}</h5>
-        </div>
+        <Link to={`/detail/${props.id}`} className={styles.link}>
+            <div className={styles.card}>
+                <img src={props.flagImg} alt="flag" className={styles.flag}/>
+                <div>
+                <h3 className={styles.h3}>{props.name}</h3>
+                <h5 className={styles.h5}>{props.continent}</h5>
+                </div>
+            </div>
+        </Link>
     )
 
 }

@@ -1,14 +1,15 @@
 const {Activity} = require('../../db');
-const {Country} = require('../../db');
-const {countryIdValidate} = require('../../validations/countryIdValidate');
+
 
     const createActivity = async (name, difficulty, duration, season, countryId) => {
 
-        const activity  = await Activity.create({
-            name,
-            difficulty,
-            duration,
-            season
+        const [activity, created] = await Activity.findOrCreate({
+            where: {
+                name, 
+                difficulty,
+                duration,
+                season,    
+            }
         })
             
         await activity.addCountry(countryId);   

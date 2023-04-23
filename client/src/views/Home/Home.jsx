@@ -2,6 +2,8 @@ import CardsContainer from "../../components/CardsContainer/CardsContainer";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getAllCountries, getActivities } from "../../redux/actions";
+import Footer from "../../components/Footer/Footer";
+
 
 
 
@@ -16,6 +18,7 @@ const Home = () => {
     return (
         <div>
             <CardsContainer/>
+            <Footer/>
         </div>
     )
 };
