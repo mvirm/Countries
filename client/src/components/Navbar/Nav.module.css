@@ -1,40 +1,60 @@
 .nav {
-    background-color: #118ab2;
+    background-color: #0353a4;
     margin: 0px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    height: fit-content;
+    height: 110px;
 }
 .container {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 800px;
+    width: 900px;
     position:absolute;
     right: 0px;
+    font-family:monospace;
 }
 
 .img {
-    width: 15%;
-    height: 15%;
+    width: 20%;
+    height: 20%;
     margin:0px;
-
+    padding: 0px;
+    animation: rotate 10s linear infinite;
 }
+@keyframes rotate {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+  }
+
 .name {
     margin: 60px 0px 0px 10px;
     padding: 0px;
     font-family:Georgia, 'Times New Roman', Times, serif;
-    color: #ffd500;
-    text-shadow: 3px 3px #353535, -1px -1px #d9d9d9;
+    color: #008000;
+    text-shadow: 2px 2px #353535, -1px -1px #d9d9d9;
     position: relative;
     left: -30px;
-    bottom: 10px;
+    bottom: -20px;
  }
  .logotipo {
   display: inline-flex;
   position: relative;
-  left: -220px;
+  left: -270px;
+  margin: 0px;
+  padding: 0px;
  }
+ .link {
+    color: #d9d9d9;
+    font-size: 18px;
+    text-decoration: none;
+}
+.isActive{
+    color: #d00000;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;  
+}

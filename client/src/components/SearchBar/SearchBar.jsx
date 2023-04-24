@@ -18,7 +18,7 @@ const SearchBar = () => {
 
     return (
         <div>
-            <input type='search'  value={name} onChange={handlerChange} />
+            <input type='search'  value={name} onChange={handlerChange} placeholder='Country...'/>
             <button onClick={handlerDispatch}>Search</button> 
         </div>
     );

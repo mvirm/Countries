@@ -7,7 +7,7 @@ const getAllActivities = async () => {
             ],
         include: {
             model: Country,
-            attributes: ['name', 'flagImg', 'continent', 'population']
+            attributes: ['id', 'name', 'flagImg', 'continent', 'population']
          }
         }
     );
