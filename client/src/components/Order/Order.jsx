@@ -16,20 +16,24 @@ const Order = () => {
 
     return(
         <div className={styles.order}>
-            <h4>Sort by:</h4>
+            <h3>Sort by:</h3>
             <div>
-                <label htmlFor="nameOrder">Name:</label>
-                <select name="nameOrder" onChange={handlerSortByName}>
+              <div className={styles.ordenador}>
+                <label htmlFor="nameOrder" className={styles.label}>Name:</label>
+                <select className={styles.option} name="nameOrder" onChange={handlerSortByName}>
                   <option value='' readOnly hidden>Choise...</option>
                     <option value="Asc">A to Z</option>
                     <option value="Desc">Z to A</option>
                 </select>
-                <label htmlFor="populationOrder">Population:</label>
-                <select name="populationOrder"onChange={handlerSortByPop}>
+              </div>
+              <div className={styles.separador}>
+                <label htmlFor="populationOrder" className={styles.label}>Population:</label>
+                <select className={styles.option} name="populationOrder"onChange={handlerSortByPop}>
                     <option value='' readOnly hidden>Choise...</option>
                     <option value="Asc">Minor to Major</option>
                     <option value="Desc">Major to Minor</option>
                 </select>           
+              </div>
             </div>
         </div>
     )

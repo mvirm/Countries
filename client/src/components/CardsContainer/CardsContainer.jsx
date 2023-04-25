@@ -34,12 +34,13 @@ const CardsContainer = () => {
           <SearchBar />
           <Order />
           <Filters />
-          <button onClick={handleShowAll}>Show all Countries</button>
+          <button onClick={handleShowAll} className={styles.btn}>Show all</button>
         </div>
         <Pagination
           countriesPerPage={countriesPerPage}
           totalCountries={countries.length}
           paginate={paginate}
+          currentPage={currentPage}
         />
         <div className={styles.container}>
           {currentCountries && currentCountries.map((c) => (

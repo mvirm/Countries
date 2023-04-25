@@ -7,7 +7,7 @@ const Landing = () => {
     return (
         <div className={styles.img}>
             <div className={styles.titulo}>
-                <h3 className={styles.margen}>Welcome to</h3>
+                <h3 className={styles.welcome}>Welcome to</h3>
                 <h1 className={styles.name}>Global Adventures</h1>
             </div>
             <div className={styles.anclaje}>

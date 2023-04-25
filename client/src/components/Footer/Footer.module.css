@@ -1,15 +1,17 @@
 .footer {
-    background-color: #03045E;
+    background-color:#003d48;
     padding: 7px; 
-    color:#C0C0C0
+    color:#d9d9d9
 }
  .h5 {
     text-align: center;
     margin: 0px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
  }
 
  .p {
     text-align: center;
     font-size: 12px;
-    margin-top: 0px;
+    margin-top: 5px;
+    font-family: monospace;
  }

@@ -21,27 +21,30 @@ const Filters = () => {
 
     return(
         <div className={styles.filtro}>
-            <h4>Filter by:</h4>
+            <h3>Filter by:</h3>
             <div>
-                <label htmlFor="continentFilter">Continet:</label>
-                <select name="continentFilter" onChange={handlerFilterContinent} >
-                    <option value='' readOnly hidden>Choise continent...</option>
+                <div className={styles.ordenador}>
+                <label htmlFor="continentFilter" className={styles.label}>Continet:</label>
+                <select className={styles.option} name="continentFilter" onChange={handlerFilterContinent} >
+                    <option value='' readOnly hidden>Choise...</option>
                     {continents && continents.map(continent => {
                         return(
                             <option key={continent} value={continent}>{continent}</option>
                         )
                     })}
                 </select>
-                
-                <label htmlFor="activityFilter">Tourist activity:</label>
-                <select name="activityFilter" onChange={handlerFilterActivity}>
-                    <option value='' readOnly hidden>Choise activity...</option>
+                </div>
+                <div className={styles.separador}>
+                <label htmlFor="activityFilter" className={styles.label}>Tourist activity:</label>
+                <select className={styles.option} name="activityFilter" onChange={handlerFilterActivity}>
+                    <option value='' readOnly hidden>Choise...</option>
                     {activities && activities.map(a => {
                         return(
                             <option key={a.id} value={a.name}>{a.name}</option>
                         )
                     })}
                 </select>
+                </div>
             </div>
         </div>
     )
