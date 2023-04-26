@@ -1,3 +1,4 @@
+//manejo la loica del get para la ruta activity, traigo la info de la BD => aqui se genera la comunicacion con los models
 const {Activity, Country} = require('../../db');
 
 const getAllActivities = async () => {

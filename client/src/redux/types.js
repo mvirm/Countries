@@ -1,3 +1,4 @@
+//genera las constantes para los nombres de la actionsz
 export const GET_ALL_COUNTRIES = "GET_ALL_COUNTRIES";
 export const GET_COUNTRY_BY_ID = "GET_COUNTRY_BY_ID";
 export const SEARCH_BY_NAME = 'SEARCH_BY_NAME';

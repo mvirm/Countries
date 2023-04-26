@@ -1,3 +1,4 @@
+//manejo la loica del get(byId) para la ruta country, guardo la info de la BD => aqui se genera la comunicacion con los models
 const {Country, Activity} = require('../../db');
 const {countryIdValidate} = require('../../validations/countryIdValidate')
 

@@ -1,3 +1,4 @@
+//logica del renderizado del search, genero un estado local name para el input y despacho la action que busca por nombre,mientras seteo el estado local en el valor inicial para limpiar el search
 import { useState } from 'react';
 import {useDispatch} from 'react-redux';
 import { searchByName } from '../../redux/actions';

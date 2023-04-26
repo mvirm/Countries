@@ -1,3 +1,4 @@
+//genero las actions que luego seran despachads en los distintos views y componentes
 import axios from 'axios';
 import { GET_ALL_COUNTRIES, GET_COUNTRY_BY_ID, SEARCH_BY_NAME, FILTER_BY_CONTINENT, SORT_BY_POPULATION, SORT_BY_NAME, GET_ACTIVITIES, FILTER_BY_ACTIVITY} from './types';
 

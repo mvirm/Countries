@@ -1,21 +1,12 @@
+//creo el contenedor de las cards usando el estado global countries, uso estados locales para el paginado
 import Card from '../Card/Card';
 import styles from './CardsContainer.module.css'
-import {useSelector, useDispatch} from 'react-redux';
-import {useState, useEffect} from 'react'
+import {useSelector} from 'react-redux';
+import {useState} from 'react'
 import Pagination from '../Pagination/Pagination';
-import Filters from '../Filters/Filters';
-import Order from '../Order/Order';
-import SearchBar from '../SearchBar/SearchBar';
-import { getAllCountries } from '../../redux/actions';
-
 
 const CardsContainer = () => {
     const countries = useSelector((state) => state.countries);
-    const dispatch = useDispatch();
-  
-    const handleShowAll = () => {
-      dispatch(getAllCountries());
-    };
   
     const [currentPage, setCurrentPage] = useState(1); //inicializo la paginacion en 1
     const [countriesPerPage, setCountriesPerPage] = useState(10); //indico cuantas cards renderizar por pagina
@@ -30,12 +21,6 @@ const CardsContainer = () => {
   
     return (
       <div>
-        <div className={styles.selects}>
-          <SearchBar />
-          <Order />
-          <Filters />
-          <button onClick={handleShowAll} className={styles.btn}>Show all</button>
-        </div>
         <Pagination
           countriesPerPage={countriesPerPage}
           totalCountries={countries.length}
@@ -43,7 +28,7 @@ const CardsContainer = () => {
           currentPage={currentPage}
         />
         <div className={styles.container}>
-          {currentCountries && currentCountries.map((c) => (
+          {currentCountries && currentCountries.map((c) => ( //uso currentCountries para que renderize solo las cards de esa pagina
             <Card
               id={c.id}
               name={c.name}

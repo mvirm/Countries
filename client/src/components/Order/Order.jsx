@@ -1,3 +1,4 @@
+//creo la logica del renderizado del sort dentro selects, con los handlers despacho las actions de sort
 import React from "react";
 import styles from './Order.module.css';
 import {useDispatch} from 'react-redux';
@@ -9,7 +10,6 @@ const Order = () => {
   const handlerSortByPop = (e) => {
     dispatch(sortByPopulation(e.target.value))
   };
-
   const handlerSortByName = (e) => {
     dispatch(sortByName(e.target.value))
   }

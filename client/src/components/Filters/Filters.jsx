@@ -1,20 +1,17 @@
+//creo la logica del renderizado del filter dentro selects, con los handlers despacho las actions de filter
 import React from 'react';
 import styles from './Filters.module.css';
 import {useDispatch, useSelector} from 'react-redux';
 import { filterByContinent, filterByActivity } from '../../redux/actions';
 
-
-
 const Filters = () => {
-    const activities = useSelector(state => state.activities);
+    const activities = useSelector(state => state.activities); // para el filtrado por actividad
     const continents = ["Africa", "Antarctica", "Asia", "Europe", "North America", "Oceania", "South America"]
     const dispatch = useDispatch();
    
-
     const handlerFilterContinent = (e) => {
         dispatch(filterByContinent(e.target.value))
     }
-
     const handlerFilterActivity = (e) => {
         dispatch(filterByActivity(e.target.value))
     }

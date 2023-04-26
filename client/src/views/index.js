@@ -1,3 +1,4 @@
+//importa y exporta todo lo que esta en la carpeta views para el ruteo
 import Landing from './Landing/Landing';
 import About from './About/About';
 import Home from './Home/Home';

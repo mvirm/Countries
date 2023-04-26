@@ -1,3 +1,4 @@
+//retorno una card que sera utilizada en el cards container
 import React from 'react';
 import {Link} from 'react-router-dom';
 import styles from './Card.module.css';

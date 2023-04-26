@@ -1,3 +1,4 @@
+//manejo la loica del get(byName) para la ruta country, guardo la info de la BD => aqui se genera la comunicacion con los models
 const {Country} = require('../../db')
 const {Op} = require('sequelize');
 

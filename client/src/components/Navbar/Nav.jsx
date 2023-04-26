@@ -1,3 +1,4 @@
+//logica y linkeo de as rutas en el nav
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styles from './Nav.module.css';

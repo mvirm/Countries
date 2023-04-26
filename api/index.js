@@ -17,6 +17,7 @@
 //     =====`-.____`.___ \_____/___.-`___.-'=====
 //                       `=---='
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+//Genero la conexion entre el server y la DB
 const server = require('./src/app.js');
 const { conn } = require('./src/db.js');
 const {getDataApi} = require('./src/controllers/dataApi.js')

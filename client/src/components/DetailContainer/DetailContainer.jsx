@@ -1,3 +1,4 @@
+//crea el contenido del detail usando el estado global country
 import React from 'react';
 import {useSelector} from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -6,6 +7,7 @@ import styles from './DetailContainer.module.css';
 const DetailContainer = () => {
     const country = useSelector(state => state.country);
     const navigate = useNavigate();
+
     return (
         <div className={styles.detail}>
             <div className={styles.contenedor}>

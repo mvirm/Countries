@@ -1,4 +1,4 @@
-
+//creo la logica para el renderizado del form, creo los estados locales input y errors, seto los estado locales con el inputHandler, despacho el submit seteando los estado globales al estado inicial
 import {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import styles from './FormContainer.module.css'
@@ -7,22 +7,17 @@ import { postActivity } from '../../redux/actions';
 import validation from './validation';
 
 const FormContainer = () => {
-    const countries = useSelector(state => state.countries);
-    const levelsDiff = [1, 2, 3, 4, 5];
-    const seasons = ['Summer', 'Autumn', 'Winter', 'Spring'];
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    const countries = useSelector(state => state.countries);
     const sortCountries = countries.sort((a, b) => {
-        if(a.name > b.name) {
-            return 1
-        }
-        if(b.name > a.name) {
-            return -1
-        }
+        if(a.name > b.name) {return 1}
+        if(b.name > a.name) {return -1}
         return 0
     })
- 
+    const levelsDiff = [1, 2, 3, 4, 5];
+    const seasons = ['Summer', 'Autumn', 'Winter', 'Spring'];
 
     const [input, setInput] = useState({
         name: '',
@@ -33,12 +28,12 @@ const FormContainer = () => {
     });
 
     const [errors, setErrors] = useState({        
-    name: '',
-    difficulty: '',
-    duration: '',
-    season: '',
-    countryId: ''
-});
+        name: '',
+        difficulty: '',
+        duration: '',
+        season: '',
+        countryId: ''
+    });
 
     const inputHandler = (e) => {
         if(e.target.name === 'countryId'){
@@ -68,11 +63,9 @@ const FormContainer = () => {
 
     const submitHandler = (e) => {
         e.preventDefault();
-
         if(Object.keys(errors).length === 0) {
             dispatch(postActivity(input));
             alert('activity created!');
-
             setInput({
                 name: '',
                 difficulty: '',

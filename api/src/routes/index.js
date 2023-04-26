@@ -1,3 +1,4 @@
+//instacio Router, modularizo las rutas, este es archivo que contiene todos los ruteos 
 const { Router } = require('express');
 const {countriesRouter} = require('./countriesRouter');
 const {activitiesRouter} = require('./activitiesRouter')

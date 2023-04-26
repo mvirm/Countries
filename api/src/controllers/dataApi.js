@@ -1,3 +1,4 @@
+//llama a la Api y guarda la info en la BD cuando se levanta el server
 const axios = require('axios');
 const {Country} = require('../db');
 

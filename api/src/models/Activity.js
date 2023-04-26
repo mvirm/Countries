@@ -1,3 +1,4 @@
+//creo el modelo Activity
 const { DataTypes } = require('sequelize');
 
 module.exports= (sequelize) => {

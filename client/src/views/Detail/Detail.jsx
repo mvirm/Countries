@@ -1,3 +1,4 @@
+//despacha la action que muestra el detalle por ID y renderiza el DetailContainers
 import {useParams} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 import { useEffect } from 'react';

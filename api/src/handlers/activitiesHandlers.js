@@ -1,3 +1,4 @@
+//manejo las respuestas de los querys a la ruta activity
 const {getAllActivities} = require('../controllers/activities/getActivities')
 const {createActivity} = require('../controllers/activities/postActivity');
 

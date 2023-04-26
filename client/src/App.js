@@ -1,3 +1,4 @@
+//genero el ruteo de la App
 import './App.css';
 import {Landing, About, Home, Form, Detail} from './views/index'
 import { Routes, Route, useLocation } from 'react-router-dom';

@@ -1,3 +1,4 @@
+//Envuelvo la App en react y a su vez en el store de redux => es lo que renderiza en el body de html
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';

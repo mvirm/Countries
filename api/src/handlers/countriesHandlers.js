@@ -1,3 +1,4 @@
+//manejo las respuestas de los querys a la ruta activity
 const {getCountryById} = require('../controllers/countries/getCountryById');
 const {getAllCountries} = require('../controllers/countries/getAllCountries');
 const {getCountriesByName} = require('../controllers/countries/getCountriesByName');

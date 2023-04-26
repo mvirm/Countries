@@ -1,3 +1,4 @@
+//contenido de la ruta About
 import React from "react";
 import Footer from "../../components/Footer/Footer";
 import styles from './About.module.css'

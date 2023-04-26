@@ -1,3 +1,4 @@
+//instancio express y el uso de middlewares(cors, express.json, morgan)
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
