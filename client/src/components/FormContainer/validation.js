@@ -1,11 +1,11 @@
-const regexName = new RegExp('^[A-Z]+$', 'i'); //eXpresion regular para que no contenga numeros ni caracteres especiales
+const regexName = new RegExp("[a-zA-Z ]{2,254}"); //eXpresion regular para que no contenga numeros ni caracteres especiales
 const regexDuration = new RegExp("^[0-2][0-9]:[0-5][0-9]$")//expresion regular para que tenga el formato hh:mm
 
 const validation = (input) => {
     let errors = {}
     //validacion del nombre
     if(!input.name) {errors.name = 'You must enter a name for the tourist activity'}
-    else if(!regexName.test(input.name)) {errors.name = 'The name of the activity must not contain numbers or special characters'}
+    else if(!regexName.test(input.name)) {errors.name = 'The name of the activity must not contain numbers'}
     else if(input.name.length < 3) {errors.name = 'The name of the activity must not have more than 3 characters'}
     else if(input.name.length > 25) {errors.name = 'The name of the activity is too long'}
     //validacion de la dificultad

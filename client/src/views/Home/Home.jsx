@@ -22,7 +22,7 @@ const Home = () => {
     useEffect(() => {
         dispatch(getAllCountries());
         dispatch(getActivities());
-    }, []);
+    }, [dispatch]);
 
     return (
         <div>

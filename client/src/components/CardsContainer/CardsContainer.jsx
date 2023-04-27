@@ -14,7 +14,10 @@ const CardsContainer = () => {
     const indexOfLastCountry = currentPage * countriesPerPage;  //encuentro el ultimo country renderizado
     const indexOfFirstCountry = indexOfLastCountry - countriesPerPage; //encuentro el primer country renderizado
     const currentCountries = countries.slice(indexOfFirstCountry, indexOfLastCountry); //corto el estado global desde el 1 country al ultimo renderizado
-  
+
+    const previus = currentPage - 1;
+    const next = currentPage + 1;
+
     const paginate = (pageNumber) => { //ejecuto la funcion que setea el numero de pagina
       setCurrentPage(pageNumber);
     };
@@ -26,6 +29,8 @@ const CardsContainer = () => {
           totalCountries={countries.length}
           paginate={paginate}
           currentPage={currentPage}
+          previus={previus}
+          next={next}
         />
         <div className={styles.container}>
           {currentCountries && currentCountries.map((c) => ( //uso currentCountries para que renderize solo las cards de esa pagina

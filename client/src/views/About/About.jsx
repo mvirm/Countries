@@ -16,10 +16,10 @@ const About = () => {
                     <h1 className={styles.name}>Global Adventures</h1>
                 </div>
                 <div className={styles.parrafo}>
-                    <p className={styles.animacion1}>This App is created so that you can learn more about the countries of the world.</p>
-                    <p className={styles.animacion2}>Here you will find all the countries of the world, with their flags and continents; In addition, in detail you will be able to know data such as what is its capital, in what subarea of the continent it is located, what area it occupies and what is its population.</p>
-                    <p className={styles.animacion3}>You will be able to find one or several countries by name, order them by their names or by their population, and you will also be able to filter them by continent or by the tourist activities that can be carried out in them.</p>
-                    <p className={styles.animacion4}>You will also have the possibility of creating a tourist activity, indicating its name, difficulty, duration, season in which it is carried out and assigning it to one or more countries.</p>
+                    <p className={styles.animacion1}>This application will allow you to expand your knowledge about the countries of the world</p>
+                    <p className={styles.animacion2}>In it you can find a complete list of all the countries, accompanied by their respective flags and the continent to which they belong. In addition, you will be able to know detailed information about each country, such as its capital, its location on the continent, its geographical area and its population.</p>
+                    <p className={styles.animacion3}>You will have the possibility to search for countries individually or in groups, order them by name or population, and filter them by continent or by the tourist activities they offer.</p>
+                    <p className={styles.animacion4}>In addition, you will be able to create your own tourist activities, specifying their name, level of difficulty, duration, time of the year in which it takes place and assigning it to one or several countries.</p>
                 </div>
                 <h4 className={styles.enjoy}>Enjoy it!</h4>
             </div>
@@ -31,3 +31,4 @@ const About = () => {
 };
 
 export default About;
+
