@@ -7,10 +7,12 @@ import { getCountryById } from '../../redux/actions';
 import Footer from '../../components/Footer/Footer';
 
 
+
 const Detail = () => {
     const dispatch = useDispatch();
     const {detailId} = useParams();
 
+    
 
     useEffect(() => {
         dispatch(getCountryById(detailId))

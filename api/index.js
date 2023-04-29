@@ -27,7 +27,7 @@ const { PORT } = process.env;
 const port = PORT || 3001;
 
 // Syncing all the models at once.
-conn.sync({ force: true }).then(async () => {
+conn.sync({ force: false }).then(async () => {
   await getDataApi()
   server.listen(port, () => {
     console.log('%s listening at 3001', server.name); // eslint-disable-line no-console

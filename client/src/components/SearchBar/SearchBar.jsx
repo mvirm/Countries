@@ -4,7 +4,7 @@ import {useDispatch} from 'react-redux';
 import { searchByName } from '../../redux/actions';
 import styles from './SearchBar.module.css'
 
-const SearchBar = () => {
+const SearchBar = ({paginate}) => {
     const dispatch = useDispatch()
     const[name, setName] = useState("");
 
@@ -12,8 +12,9 @@ const SearchBar = () => {
         setName(e.target.value)
     }
 
-    const handlerDispatch = () => {
+    const handlerDispatch = async () => {
         dispatch(searchByName(name));
+        paginate(1)
         setName('')
     }
 
