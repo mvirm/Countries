@@ -6,7 +6,8 @@ const initialState = {
     allCountries: [],
     country: {},
     activities: [],
-    allActivities : []
+    allActivities : [],
+
 }
 
 const rootReducer = (state = initialState, action) => {
@@ -61,11 +62,12 @@ const rootReducer = (state = initialState, action) => {
             }
 
         case FILTER_BY_CONTINENT:
-            const allCountries = state.allCountries;
+            const allCountries = state.allCountries
             const filter = allCountries.filter(c => c.continent === action.payload)
+
             return {
                 ...state,
-                countries: filter
+                countries: filter,
             };
 
         case POST_ACTIVITY:
@@ -81,12 +83,13 @@ const rootReducer = (state = initialState, action) => {
             }; 
 
         case FILTER_BY_ACTIVITY:
-            const allActivities = state.allActivities
+            const allActivities=  state.allActivities 
             const findActivity = allActivities.find(a => a.name === action.payload)
+
                 return {
                     ...state,
                     countries: findActivity.Countries
-                }
+                };
             
         default:
             return {
