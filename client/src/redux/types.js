@@ -10,3 +10,4 @@ export const GET_ACTIVITIES = 'GET_ACTIVITIES';
 export const FILTER_BY_ACTIVITY = 'FILTER_BY_ACTIVITY';
 
 
+

@@ -46,7 +46,8 @@
     color: #353535;
     font-size: 15px;
     text-align: justify;
-}
+  }
+
 .animacion1 {
     text-align: justify;
     animation: slide-in 2s forwards;
