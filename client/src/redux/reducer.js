@@ -62,13 +62,13 @@ const rootReducer = (state = initialState, action) => {
             }
 
         case FILTER_BY_CONTINENT:
-            const allCountries = state.allCountries
-            const filter = allCountries.filter(c => c.continent === action.payload)
+            const allCountries = state.allCountries;
 
-            return {
-                ...state,
-                countries: filter,
-            };
+            const filter = allCountries.filter(c => c.continent === action.payload)
+                return {
+                    ...state,
+                    countries: filter,
+                };
 
         case POST_ACTIVITY:
             return {
@@ -83,13 +83,15 @@ const rootReducer = (state = initialState, action) => {
             }; 
 
         case FILTER_BY_ACTIVITY:
-            const allActivities=  state.allActivities 
-            const findActivity = allActivities.find(a => a.name === action.payload)
+            const allActivities=  state.allActivities;
 
-                return {
-                    ...state,
-                    countries: findActivity.Countries
-                };
+                const findActivity = allActivities.find(a => a.name === action.payload)
+    
+                    return {
+                        ...state,
+                        countries: findActivity.Countries
+                    }
+            // };
             
         default:
             return {

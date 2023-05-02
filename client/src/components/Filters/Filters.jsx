@@ -11,13 +11,12 @@ const Filters = ({paginate}) => {
     const [continentValue, setContinentValue] = useState('');
     const [activityValue, setActivityValue] = useState('');
 
-
-
     const activitiesFiltered = activities.filter(
         (activity, index, self) => index === self.findIndex((a) => a.name === activity.name)
     ); // me aseguro que activities no tenga nombre de actividades repetidas => activity: el elemento actual en activities/index: el índice del elemento actual activities/self: una referencia al array activities
 
-    const continents = ["Africa", "Antarctica", "Asia", "Europe", "North America", "Oceania", "South America"]
+    const continents = ["Africa", "Antarctica", "Asia", "Europe", "North America", "Oceania", "South America"];
+    
     const dispatch = useDispatch();
    
     const handlerFilterContinent = (e) => {
