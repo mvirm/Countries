@@ -11,9 +11,10 @@ import Pagination from '../Pagination/Pagination';
 
 
 const CardsContainer = () => {
-    const countries = useSelector((state) => state.countries);
+    const countries = useSelector((state) => state.countries); //escucho la propiedad countries del estado global
     const dispatch = useDispatch();
-  
+
+//paginado
     const [currentPage, setCurrentPage] = useState(1); //inicializo la paginacion en 1
     const countriesPerPage = 10; //indico cuantas cards renderizar por pagina
   
@@ -27,6 +28,8 @@ const CardsContainer = () => {
     const paginate = (pageNumber) => { //ejecuto la funcion que setea el numero de pagina
       setCurrentPage(pageNumber);
     };
+
+//handler para despachar la action getAllCountries    
     const handleShowAll = () => {
       dispatch(getAllCountries());
     };

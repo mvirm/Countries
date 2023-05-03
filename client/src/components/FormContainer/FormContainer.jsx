@@ -12,7 +12,7 @@ const FormContainer = () => {
     const navigate = useNavigate();
 
     const countries = useSelector(state => state.countries);
-    const sortCountries = countries.sort((a, b) => {
+    const sortCountries = countries.sort((a, b) => { //ordeno los paises alfabeticamente para mejorar la UX
         if(a.name > b.name) {return 1}
         if(b.name > a.name) {return -1}
         return 0
@@ -20,7 +20,7 @@ const FormContainer = () => {
     const levelsDiff = [1, 2, 3, 4, 5];
     const seasons = ['Summer', 'Autumn', 'Winter', 'Spring'];
 
-    const [input, setInput] = useState({
+    const [input, setInput] = useState({ //estado,local para menejar los inputs
         name: '',
         difficulty: '',
         duration: '',
@@ -28,7 +28,7 @@ const FormContainer = () => {
         countryId: []
     });
 
-    const [errors, setErrors] = useState({        
+    const [errors, setErrors] = useState({ // estado local para manejar los errores     
         name: '',
         difficulty: '',
         duration: '',
@@ -36,9 +36,10 @@ const FormContainer = () => {
         countryId: ''
     });
 
-    const [formComplete, setFormComplete] = useState(false);
-    const [success, setSuccess] = useState(false);
+    const [formComplete, setFormComplete] = useState(false); //estodo local para manejar el boton del submit y el envio de datos
+    const [success, setSuccess] = useState(false); // estado local para manejar la alerta de ok
 
+    //handler que maneja el estado de los inputs
     const inputHandler = (e) => {
         if(e.target.name === 'countryId'){
             setInput({
@@ -58,6 +59,7 @@ const FormContainer = () => {
         }));
     };
 
+//useEffect que escucha los estados locales input y errors para setear el estado FormComplete
     useEffect(() => {
         let values = Object.values(input);
         let notComplete = values.filter( value => value === "" || value === [])
@@ -66,6 +68,7 @@ const FormContainer = () => {
         if(!notComplete.length && !error.length) setFormComplete(true)
     }, [input, errors])
 
+//handler para borrar los paises seleccionados
     const deleteHandler = (id) => {
         setInput({
             ...input,
@@ -73,11 +76,12 @@ const FormContainer = () => {
         })
     }
 
+//handler del submit ==> si fomrComplete es true despacha la action PostActivity, setea Success en true, setea input y errors al estado inicial
     const submitHandler = (e) => {
         e.preventDefault();
         if(formComplete) {
             dispatch(postActivity(input));
-            setSuccess(true);
+            setSuccess(true); // al setearse en true cambia el rederizado
             setInput({
                 name: '',
                 difficulty: '',

@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './DetailContainer.module.css';
 
 const DetailContainer = () => {
-    const country = useSelector(state => state.country);
+    const country = useSelector(state => state.country);// escucho el estado global countries
     const navigate = useNavigate();
 
     return (

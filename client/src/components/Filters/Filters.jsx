@@ -18,13 +18,15 @@ const Filters = ({paginate}) => {
     const continents = ["Africa", "Antarctica", "Asia", "Europe", "North America", "Oceania", "South America"];
     
     const dispatch = useDispatch();
-   
+    
+//handler para despachar la action filterByContinent  
     const handlerFilterContinent = (e) => {
         dispatch(filterByContinent(e.target.value));
-        setContinentValue('')
-        paginate(1);
-    } 
+        setContinentValue('') // vuelve a choise el select
+        paginate(1); // muestra la pag 1 del filtrado
+    }
 
+//handler para despachar la action filterByActivity
     const handlerFilterActivity = (e) => {
         dispatch(filterByActivity(e.target.value));
         setActivityValue('')

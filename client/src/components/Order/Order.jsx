@@ -7,15 +7,17 @@ import {sortByPopulation, sortByName} from "../../redux/actions";
 
 const Order = ({paginate}) => {
   const dispatch = useDispatch();
-  const[nameValue, setNameValue] = useState('');
-  const[populationValue, setPopulationValue] = useState('');
+  const[nameValue, setNameValue] = useState(''); 
+  const[populationValue, setPopulationValue] = useState(''); 
 
+//handler que despacha la action sortByName
   const handlerSortByName = (e) => {
     dispatch(sortByName(e.target.value))
-    setNameValue('')
-    paginate(1)
+    setNameValue('') // seteo el estado local para que vuelva choise
+    paginate(1) // navega a la pagina 1 para mostrar el ordenamiento desde el ppio
   }
-  
+
+// handler que despacha la action SortByPopulation
   const handlerSortByPop = (e) => {
     dispatch(sortByPopulation(e.target.value))
     setPopulationValue('')

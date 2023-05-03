@@ -6,9 +6,9 @@ import imagenPrev from '../img/imagenPrev.png';
 import imagenNext from '../img/imagenNext.png';
 
 const Pagination = ({ countriesPerPage, totalCountries, paginate, currentPage, previus, next }) => { //traigo  desectructurado las props de CardsContainer
-  const lastPage = Math.ceil(totalCountries / countriesPerPage)
+  const lastPage = Math.ceil(totalCountries / countriesPerPage) // redondeo para arriba la division del total de paises por los paises por pagina
 
-  
+  // el renderizado es condicional: si la pag es 1 no muestra previus, ni el boton para volver a la 1er pagina // si la pagina es la ultima no muestra el next
   return (
       <nav className={styles.pagination}>
         {currentPage !== 1 ? <NavLink to={previus} onClick={() => paginate(previus)}><img className={styles.flechaPrev} src={imagenPrev} alt="previus"/></NavLink>: null}

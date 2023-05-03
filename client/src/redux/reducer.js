@@ -1,4 +1,4 @@
-//creo el estado global, y el switch con la logica para realizar cunado se despachan las distintas actions
+//creo el estado global, y el switch con la logica para realizar cuando se despachan las distintas actions
 import { GET_ALL_COUNTRIES, GET_COUNTRY_BY_ID, SEARCH_BY_NAME, SORT_BY_POPULATION, FILTER_BY_CONTINENT, SORT_BY_NAME, GET_ACTIVITIES, FILTER_BY_ACTIVITY, POST_ACTIVITY} from "./types";
 
 const initialState = {
@@ -41,7 +41,7 @@ const rootReducer = (state = initialState, action) => {
             });
             return  {
                 ...state,
-                countries: [...sortArray]
+                countries: [...sortArray] //asigno la referencia de sortArray y no modifico el estado original
             };
 
         case SORT_BY_NAME:
@@ -91,7 +91,6 @@ const rootReducer = (state = initialState, action) => {
                         ...state,
                         countries: findActivity.Countries
                     }
-            // };
             
         default:
             return {

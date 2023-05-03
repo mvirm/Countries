@@ -8,14 +8,16 @@ const SearchBar = ({paginate}) => {
     const dispatch = useDispatch()
     const[name, setName] = useState("");
 
+//handler que setea el estado global
     const handlerChange = (e) => {
         setName(e.target.value)
     }
 
+//handler que despacha la action searchByName
     const handlerDispatch = async () => {
         dispatch(searchByName(name));
-        paginate(1)
-        setName('')
+        paginate(1) //vuelve a la pagina 1
+        setName('') //setea name al estado inicial
     }
 
     return (
